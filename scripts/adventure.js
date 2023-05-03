@@ -60,10 +60,10 @@ function encounterCallback(entities) {
 
     if (playerHP > 0 ) {
       console.log('Player Won!!');
-      return completeEncounter("victory", creatureStats.name)
+      return completeEncounter("victory", creatureStats.name);
     } else {
-      console.log('Player Lost!!')
-      return completeEncounter("defeat", creatureStats.name)
+      console.log('Player Lost!!');
+      return completeEncounter("defeat", creatureStats.name);
     };
     
   };
@@ -98,6 +98,18 @@ function outcomeCallback(outcome) {
 
   // don't forget to return the promise from notifyUser()
   // no matter what the outcome is
+  
+  if (outcome.status === 'met') {
+    return notifyUser(`You met ${outcome.creature}! They gave you ${outcome.reward}!`)
+  };
+
+  if (outcome.status === 'slain') {
+    return notifyUser(`You met ${outcome.creature}! They gave you DEATH!`)
+  };
+
+  if (outcome.status === 'level-up') {
+    return notifyUser(`You met ${outcome.creature}! Your reward is ${outcome.reward} xp and a new level!`)
+  };
 }
 
 function notificationCallback() {

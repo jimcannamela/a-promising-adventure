@@ -69,7 +69,7 @@ function completeEncounter(outcome, creature) {
 }
 
 function notifyUser(message) {
-
+  console.log(message);
 }
 
 function reset() {
