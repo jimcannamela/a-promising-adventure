@@ -32,17 +32,41 @@ function encounterCallback(entities) {
 // ##################################################################################
  
   // Loop not needed if we know there are always only two entries in the array
-  //for (let c = 0; c <= entities.length; c++) {
+  // for (let c = 0; c <= entities.length; c++) {
 
   const playerStats = entities[0];
   const creatureStats = entities[1];
 
-  
+  if (creatureStats.type === 'friendly') {
+    return completeEncounter("meet", creatureStats.name)   
+  };
 
+  if (creatureStats.type === 'not-so-friendly') {
 
+    let whosTurn = 'player';
+    let playerHP = playerStats.hp;
+    let creatureHP = creatureStats.hp;
 
-  //}
+    while (playerHP > 0 && creatureHP > 0) {
 
+      if (whosTurn === 'player') {
+        creatureHP -= playerStats.power - creatureStats.armor;
+        whosTurn='creature';
+      } else {  
+        playerHP -= creatureStats.power - playerStats.armor;
+        whosTurn='player';
+      }    
+    };
+
+    if (playerHP > 0 ) {
+      console.log('Player Won!!');
+      return completeEncounter("victory", creatureStats.name)
+    } else {
+      console.log('Player Lost!!')
+      return completeEncounter("defeat", creatureStats.name)
+    };
+    
+  };
 
 }
 
