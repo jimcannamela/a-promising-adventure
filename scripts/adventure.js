@@ -28,6 +28,22 @@ function encounterCallback(entities) {
   
   // don't forget to return the promise from completeEncounter()
   // no matter what the outcome is
+
+// ##################################################################################
+ 
+  // Loop not needed if we know there are always only two entries in the array
+  //for (let c = 0; c <= entities.length; c++) {
+
+  const playerStats = entities[0];
+  const creatureStats = entities[1];
+
+  
+
+
+
+  //}
+
+
 }
 
 function outcomeCallback(outcome) {
