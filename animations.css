@@ -1,0 +1,59 @@
+
+
+@keyframes book {
+  from {
+    content: "📓";
+  }
+
+  to {
+    content: "📖";
+  }
+}
+
+@keyframes explore {
+  0% {
+    content: "___🚶";
+  }
+
+  25% {
+    content: "__🚶";
+  }
+  
+  50% {
+    content: "_🚶";
+  }
+
+  75% {
+    content: "⁉️🚶";
+  }
+}
+
+@keyframes meet {
+  from {
+    content: "🫱 🫲";
+  }
+
+  to {
+    content: "🤝";
+  }
+}
+
+@keyframes dead {
+  from {
+    content: "☠️";
+  }
+
+  to {
+    content: "💀";
+  }
+}
+
+@keyframes leveled {
+  from {
+    content: "⬆️";
+  }
+
+  to {
+    content: "✨⬆️✨";
+  }
+}
