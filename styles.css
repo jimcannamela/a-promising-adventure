@@ -1,0 +1,41 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#tv {
+  text-align: center;
+  font-size: 54px;
+}
+
+#tv::before {
+  content: "";
+  display: block;
+  font-size: 5em;
+  animation: 1s infinite linear book;
+}
+
+#tv.explore::before {
+  animation: 2s infinite linear explore;
+}
+
+#tv.meet::before {
+  animation: 1s infinite linear meet;
+}
+
+#tv.dead::before {
+  animation: 1s infinite linear dead;
+}
+
+#tv.level-up::before {
+  animation: 1s infinite linear leveled;
+}
+

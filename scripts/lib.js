@@ -1,3 +1,5 @@
+const $tv = document.querySelector('#tv');
+
 function getInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -16,6 +18,7 @@ function getName() {
 function getEntity(id, type, name) {
   return new Promise(function(resolve) {
     setTimeout(function() {
+      $tv.classList.add('explore');
       resolve({
         id,
         type,
@@ -64,14 +67,36 @@ function completeEncounter(outcome, creature) {
   return new Promise(function(resolve) {
     setTimeout(function() {
       resolve(data);
-    }, getInt(1000, 3000));
+    }, 6000);
   });
 }
 
 function notifyUser(message) {
-  console.log(message);
+  $tv.innerText = message;
+  $tv.classList.remove('explore');
+
+  const msg = message.toLowerCase();
+
+  if(msg.includes('met')) {
+    $tv.classList.add('meet');
+  }
+
+  if(msg.includes('slain')) {
+    $tv.classList.add('dead');
+  }
+
+  if(msg.includes('xp')) {
+    $tv.classList.add('level-up');
+  }
+
+  return new Promise(function(resolve) {
+    setTimeout(function() {
+      resolve();
+    }, 10000);
+  });
 }
 
 function reset() {
-
+  $tv.innerText = "";
+  $tv.className = "";
 }
